@@ -1,0 +1,691 @@
+@font-face {
+  font-family: "archive"; src: url(../fonts/Archive-Regular.ttf);
+}
+@font-face {
+  font-family: "nagomi"; src: url(../fonts/NagomiGokubosoGothic-ExtraLight.otf);
+}
+/*
+@font-face {
+  font-family: "sawarabi"; src: url(../fonts/SawarabiGothic-Regular.ttf);
+}
+*/
+@font-face {
+  font-family: "mplus1"; src: url(../fonts/MPLUS1-Regular.ttf);
+}
+@font-face {
+  font-family: "montserrat"; src: url(../fonts/Montserrat-Regular.ttf);
+}
+
+/*--------------------------------
+General
+---------------------------------*/
+
+body {
+  font-family: "mplus1", Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: .8px;
+  color: #333;
+  background-color: #fffffe;
+}
+
+a {
+  transition: opacity .3s;
+  text-decoration: none;
+  color: #7bbff9;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  border-style: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.pc-only {
+  display: block;
+}
+
+.sp-only {
+  display: none;
+}
+
+.section {
+  width: 98%;
+  padding: 100px 0;
+  margin: 15px auto;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+/* release */
+#info {
+  background-color: #b7dbff;
+}
+
+#release {
+  background-color: #FFFFFF;
+}
+
+/* member */
+#member {
+  background-color: #C9C9FF;
+}
+
+/* contact */
+#contact {
+  background-color: #EFEFEF;
+}
+
+.inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.title {
+  font-family: "montserrat";
+  font-size: 42px;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 1;
+  margin-bottom: 40px;
+  /*text-align: center;*/
+  letter-spacing: .05em;
+  color: #555555;
+}
+
+.lead {
+  margin: 0 0 30px 50px;
+}
+
+.under {
+  background: linear-gradient(transparent 50%, #E9E9ff 50%);
+}
+
+.under-colored {
+  background: linear-gradient(transparent 50%, #C9C9FF 50%);
+}
+
+/*--------------------------------
+Header
+---------------------------------*/
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+}
+
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #88C3FF, #4117EB);
+  /* #FFAAFF, #FF5555 */
+  background-size: 200% 200%;
+  animation: bggradient 8s ease infinite;
+  opacity: 0;
+  transition: all .6s;
+}
+
+@keyframes bggradient{
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.header-bg.active {
+  opacity: 1;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+}
+
+.header-logo {
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-right: 20px;
+  letter-spacing: .05em;
+}
+
+.header-logo a {
+  font-family: "archive";
+  font-style: italic;
+  color: #fff;
+}
+
+.header-nav-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-nav-item:not(:last-child) {
+  margin-right: 20px;
+}
+
+.header-nav-item a {
+  font-family: "Neris";
+  font-weight: bold;
+  font-style: italic;
+  font-size: 15px;
+  padding: 5px 0;
+  letter-spacing: .1em;
+  color: #fff;
+}
+
+.header-nav-item a:hover {
+  opacity: .8;
+}
+
+/*--------------------------------
+ mv
+---------------------------------*/
+
+/* グラデーション変化のコード
+
+.mv-bg {
+  width: 100%;
+  height: 800px;
+  background: linear-gradient(45deg, #FFAAFF, #FF5555);
+  background-size: 200% 200%;
+  animation: bggradient 8s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+*/
+
+.mv-bg {
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.mv-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1;
+  transition: all .6s;
+}
+
+.mv-video.active {
+  opacity: 0.4;
+}
+
+.record-logo {
+  position: absolute;
+  z-index: 1;
+  width: 800px;
+  height: auto;
+  max-width: 80%;
+  max-height: 80%;
+}
+
+/*--------------------------------
+ Links
+---------------------------------*/
+.links {
+  max-width: 767px;
+  height: 80px;
+  margin: 30px auto 80px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*
+  background-color: #f2ecff;
+  border-radius: 5px;
+  */
+}
+
+.sns-logo:hover {
+  opacity: .8;
+}
+
+.sns-logo-image {
+  width: auto;
+  height: 60px;
+  margin: auto 25px;
+}
+
+/*--------------------------------
+ Profile
+---------------------------------*/
+.profile {
+  max-width: 1000px;
+  padding: 70px 0;
+  margin: 150px auto 20px auto;
+  border: 3px solid #b7dbff;
+}
+
+.profile-title {
+  font-family: "nagomi";
+  font-weight: bold;
+  font-style: italic;
+  font-size: 48px;
+  margin-bottom: 45px;
+  text-align: center;
+  color: #68B3FF;
+}
+
+.profile-text {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/*--------------------------------
+ Info
+---------------------------------*/
+/*
+.info-contents {
+  max-width: 1200px;
+  padding: 50px 0 70px 0;
+  margin: 0 auto 100px auto;
+  background-color: #b7dbff;
+  border-radius: 7px;
+}
+*/
+
+.info-title {
+  font-family: "Neris";
+  font-size: 25px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.info-list {
+  max-width: 650px;
+  height: 300px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  border-width: 1px;
+  border-color: #EEEEEE;
+  border-style: solid;
+  border-radius: 5px;
+}
+
+.info-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.info-list::-webkit-scrollbar-track {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+}
+
+.info-list::-webkit-scrollbar-thumb {
+  background-color: #E5E5E5;
+  border-radius: 20px;
+}
+
+.info-term {
+  font-weight: bold;
+  float: left;
+  padding-right: 50px;
+}
+
+/*--------------------------------
+ Release
+---------------------------------*/
+.release-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto -40px auto;
+  max-width: 1500px;
+}
+
+.release-item {
+  width: 31.74603%;
+  margin-right: 1.58730%;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.release-item:hover {
+  opacity: .9;
+}
+
+.release-item:nth-of-type(3n) {
+  margin-right: 0;
+}
+
+.release-img img {
+  border: 1px solid #e6e6e6;
+}
+
+.release-detail {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.artist-img {
+  width: 35px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.artist-img img {
+  border-radius: 50%;
+}
+
+.release-name {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.release-info {
+  font-size: 12px;
+}
+
+/*--------------------------------
+ Member
+---------------------------------*/
+.member-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.member-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 48%;
+  margin-bottom: 50px;
+  padding: 15px;
+  background-color: #E9E9FF;
+  border-radius: 7px;
+  transition: .15s;
+}
+
+.member-item:hover {
+  background-color: #FFFFFF;
+  transition: .15s;
+}
+
+.member-img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.member-img img {
+  border-radius: 50%;
+}
+
+.member-body {
+  margin: auto 0;
+}
+
+.member-name {
+  margin: auto 0;
+  font-size: 18px;
+}
+
+.member-name::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url(../image/link.svg);
+  background-size: contain;
+  vertical-align: middle;
+  margin-left: 5px;
+  opacity: 0.25;
+}
+
+/*--------------------------------
+ Contact
+---------------------------------*/
+.contact-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-item {
+  display: block;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.contact-text {
+  margin-top: 10px;
+  text-align: center;
+}
+/*--------------------------------
+ page-top
+
+.page-top {
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #e6e6e6;
+}
+
+.page-top .material-icons-outlined {
+  vertical-align: bottom;
+}
+---------------------------------*/
+
+/*--------------------------------
+ Footer
+---------------------------------*/
+.footer {
+  padding: 30px;
+  /* background-color: #E95887; */
+  background: linear-gradient(45deg, #88C3FF, #4117EB);
+  background-size: 200% 200%;
+  animation: bggradient 8s ease infinite;
+}
+
+.footer-text {
+  font-size: 10px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+/*--------------------------------
+ Release
+
+.article {
+  padding: 50px 0;
+}
+
+.article-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.article-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.article-img {
+  margin-bottom: 20px;
+}
+
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.article-info-title {
+  font-size: 15px;
+}
+
+.article-body img {
+  margin-bottom: 30px;
+}
+
+.article-body p {
+  margin-bottom: 30px;
+}
+
+.home-link {
+  text-align: center;;
+}
+---------------------------------*/
+
+/*media Queries 767
+----------------------------------------------------*/
+@media screen and (max-width: 767px) {
+  /* General */
+  body {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .pc-only {
+    display: none;
+  }
+
+  .sp-only {
+    display: block;
+  }
+
+  .title {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .inner {
+    padding: 0 15px;
+  }
+
+  /* Header */
+  .header-logo {
+    margin: 0 auto;
+    font-size: 18px;
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  /*
+  .header-nav-item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  .header-nav-item a {
+    font-size: 12px;
+  }
+  */
+
+  /* Profile */
+  .profile {
+    padding: 30px 0;
+  }
+
+  .profile-title {
+    font-size: 30px;
+  }
+
+  /* Links */
+  .sns-logo-image {
+    width: auto;
+    height: 42px;
+    margin: auto 5px;
+  }
+
+  /* Release */
+  .release-name {
+    font-size: 10px;
+  }
+
+  /*
+  .release-list {
+    justify-content: space-between;
+  }
+  */
+
+  .release-item {
+    flex: 0 0 50%;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  /* Member */
+  .member-list {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  .member-item {
+    width: 100%;
+    margin-bottom: 35px;
+  }
+
+  .member-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .member-img {
+    width: 60px;
+  }
+
+  .member-name {
+    font-size: 15px;
+  }
+
+  /* Contact */
+  .contact-item {
+    margin: 0 10px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 20px 0;
+  }
+}
+
+.bottom-space {
+  margin-bottom: 25px;
+}
